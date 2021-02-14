@@ -1,3 +1,6 @@
+import attachments.Attachment
+import attachments.NoteAttachment
+
 data class Post(
     val id: Int,
     val ownerId: Int,
@@ -13,7 +16,11 @@ data class Post(
     val reposts: Long,
     val views: Long,
     val postType: String,
+    val postSource: PostSource?,
+    val attachment: Array<Attachment>?,
+    val geo: Geo?,
     val signerId: Int,
+    val copyHistory: Array<Post>?,
     val canPin: Boolean,
     val canDelete: Boolean,
     val canEdit: Boolean,

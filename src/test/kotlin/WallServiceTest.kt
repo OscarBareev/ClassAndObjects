@@ -7,28 +7,34 @@ class WallServiceTest {
     @Test
     fun add() {
 
-        val post = Post( 1,
-            1,
-            1,
-            1234,
-            "Hello",
-            2,
-            2,
-            false,
-            4,
-            "5",
-            1,
-            3,
-            4,
-            "Hello",
-            5,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            4)
+        val post = Post(
+            id = 1,
+            ownerId = 1,
+            fromId = 1,
+            date = 1234,
+            text = "Hello",
+            replyOwnerId = 2,
+            replyPostId = 2,
+            friendsOnly = false,
+            comment = 4,
+            copyright = "5",
+            likes = 1,
+            reposts = 3,
+            views = 4,
+            postType = "Hello",
+            postSource = null,
+            attachment = null,
+            geo = null,
+            signerId = 5,
+            copyHistory = null,
+            canPin = true,
+            canDelete = true,
+            canEdit = true,
+            isPinned = true,
+            markedAsAds = true,
+            isFavorite = true,
+            postponedId = 4
+        )
 
         val result = WallService.add(post)
 
@@ -42,28 +48,33 @@ class WallServiceTest {
     fun update_sameIndex() {
 
         val newPost = Post(
-            1,
-            1,
-            1,
-            1234,
-            "Hello",
-            2,
-            2,
-            false,
-            4,
-            "5",
-            1,
-            3,
-            4,
-            "Hello again",
-            5,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            4)
+            id = 1,
+            ownerId = 1,
+            fromId = 1,
+            date = 1234,
+            text = "Hello",
+            replyOwnerId = 2,
+            replyPostId = 2,
+            friendsOnly = false,
+            comment = 4,
+            copyright = "5",
+            likes = 1,
+            reposts = 3,
+            views = 4,
+            postType = "Hello again",
+            postSource = null,
+            attachment = null,
+            geo = null,
+            signerId = 5,
+            copyHistory = null,
+            canPin = true,
+            canDelete = true,
+            canEdit = true,
+            isPinned = true,
+            markedAsAds = true,
+            isFavorite = true,
+            postponedId = 4
+        )
 
 
         val result = WallService.update(newPost)
@@ -76,35 +87,39 @@ class WallServiceTest {
     fun update_otherIndex() {
 
         val newPost = Post(
-            123,
-            1,
-            1,
-            1234,
-            "Hello",
-            2,
-            2,
-            false,
-            4,
-            "5",
-            1,
-            3,
-            4,
-            "Hello again",
-            5,
-            true,
-            true,
-            true,
-            true,
-            true,
-            true,
-            4)
+            id = 123,
+            ownerId = 1,
+            fromId = 1,
+            date = 1234,
+            text = "Hello",
+            replyOwnerId = 2,
+            replyPostId = 2,
+            friendsOnly = false,
+            comment = 4,
+            copyright = "5",
+            likes = 1,
+            reposts = 3,
+            views = 4,
+            postType = "Hello again",
+            postSource = null,
+            attachment = null,
+            geo = null,
+            signerId = 5,
+            copyHistory = null,
+            canPin = true,
+            canDelete = true,
+            canEdit = true,
+            isPinned = true,
+            markedAsAds = true,
+            isFavorite = true,
+            postponedId = 4
+        )
 
 
         val result = WallService.update(newPost)
 
         assertFalse(result)
     }
-
 
 
 }
