@@ -1,4 +1,5 @@
 import attachments.*
+import comment.Comment
 
 fun main() {
 
@@ -20,15 +21,13 @@ fun main() {
 
     val note = Note(1, "name", "one", "two")
 
-    if (audio is Audio) {
-        var audioAttachment = AudioAttachment(audio = audio)
-        attachments += audioAttachment
-    }
 
-    if (note is Note) {
-        var noteAttachment = NoteAttachment(note = note)
-        attachments += noteAttachment
-    }
+    val audioAttachment = AudioAttachment(audio = audio)
+    attachments += audioAttachment
+
+
+    val noteAttachment = NoteAttachment(note = note)
+    attachments += noteAttachment
 
 
     val original = Post(
@@ -60,10 +59,25 @@ fun main() {
         postponedId = 4
     )
 
+    val newComment = Comment(
+        id = 1,
+        postId = 2,
+        fromId = 3,
+        date = 4,
+        text = "TEXT",
+        donut = null,
+        replyToUser = 3,
+        replyToComment = 2,
+        attachment = null,
+        parentsStack = null,
+        thread = null
+    )
+
     val newPost = original.copy(text = "Hello Everyone!")
 
     WallService.add(original)
     WallService.update(newPost)
+    WallService.createComment(newComment)
 
     val result = WallService.add(original).id
 

@@ -1,7 +1,31 @@
+import comment.Comment
+import comment.PostNotFoundException
+
 object WallService {
 
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
+
+
     private val randomId = posts.size + 1
+
+
+    fun createComment(comment: Comment): Comment {
+        var check = false
+
+        for (post in posts) {
+            if (post.id == comment.postId) {
+                check = true
+            }
+        }
+
+        if (check) {
+            comments += comment
+        } else {
+            throw PostNotFoundException("There are no posts with this Id")
+        }
+        return comments.last()
+    }
 
 
     fun add(post: Post): Post {
@@ -11,6 +35,7 @@ object WallService {
         posts += idPost
         return posts.last()
     }
+
 
     fun update(newPost: Post): Boolean {
 
