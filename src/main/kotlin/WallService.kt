@@ -10,27 +10,23 @@ object WallService {
     private val randomId = posts.size + 1
 
 
-    fun createComment(comment: Comment): Comment
-    {
+    fun createComment(comment: Comment): Comment {
 
 
-        findById(comment.postId) ?: throw PostNotFoundException("No id")
-        comments += comment
+        var check = false
+        val searchId = comment.postId
 
+        for (post in posts) {
+            if (post.id == searchId) {
+                check = true
+            }
+        }
 
-        /* var check = false
-
-         for (post in posts) {
-             if (post.id == comment.postId) {
-                 check = true
-             }
-         }
-
-         if (check) {
-             comments += comment
-         } else {
-             throw PostNotFoundException("There are no posts with this Id")
-         }*/
+        if (check) {
+            comments += comment
+        } else {
+            throw PostNotFoundException("There are no posts with $searchId Id")
+        }
 
         return comments.last()
     }
