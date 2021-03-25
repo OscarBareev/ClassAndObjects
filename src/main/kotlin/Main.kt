@@ -1,5 +1,6 @@
 import attachments.*
 import comment.Comment
+import notes.Note
 
 fun main() {
 
@@ -19,7 +20,7 @@ fun main() {
         1
     )
 
-    val note = Note(1, "name", "one", "two")
+    val note = Note(1, "name", "one", false)
 
 
     val audioAttachment = AudioAttachment(audio = audio)

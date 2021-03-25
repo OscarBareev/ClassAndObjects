@@ -6,9 +6,7 @@ object WallService {
     private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
 
-
     private val randomId = posts.size + 1
-
 
     fun createComment(comment: Comment): Comment {
 

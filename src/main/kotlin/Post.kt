@@ -1,7 +1,7 @@
 import attachments.Attachment
 import attachments.NoteAttachment
 
-data class Post(
+data class  Post(
     val id: Int,
     val ownerId: Int,
     val fromId: Int,
