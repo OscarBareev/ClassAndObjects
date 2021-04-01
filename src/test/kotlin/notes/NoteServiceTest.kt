@@ -17,6 +17,8 @@ class NoteServiceTest {
         val result = NoteService.add(title, text)
 
         assertFalse(result == 0)
+
+        NoteService.cleanAll()
     }
 
 
@@ -27,6 +29,8 @@ class NoteServiceTest {
         val noteId = 999
 
         NoteService.createComment(message, noteId)
+
+        NoteService.cleanAll()
     }
 
     @Test
@@ -42,6 +46,8 @@ class NoteServiceTest {
         val result = NoteService.createComment(message, noteId)
 
         assertFalse(result == 0)
+
+        NoteService.cleanAll()
     }
 
 
@@ -57,6 +63,8 @@ class NoteServiceTest {
         val result = NoteService.delete(noteId)
 
         assert(result == 1)
+
+        NoteService.cleanAll()
     }
 
     @Test
@@ -71,6 +79,8 @@ class NoteServiceTest {
         val result = NoteService.delete(noteId)
 
         assert(result == 0)
+
+        NoteService.cleanAll()
     }
 
 
@@ -88,6 +98,8 @@ class NoteServiceTest {
         val result = NoteService.deleteComment(noteId)
 
         assert(result == 1)
+
+        NoteService.cleanAll()
     }
 
     @Test
@@ -105,6 +117,8 @@ class NoteServiceTest {
         val result = NoteService.deleteComment(commentId)
 
         assert(result == 0)
+
+        NoteService.cleanAll()
     }
 
     @Test
@@ -117,6 +131,8 @@ class NoteServiceTest {
         val result = NoteService.edit(note, "Hello", "World")
 
         assert(result == 1)
+
+        NoteService.cleanAll()
     }
 
     @Test
@@ -135,6 +151,8 @@ class NoteServiceTest {
         val result = NoteService.editComment(comment, message)
 
         assert(result == 1)
+
+        NoteService.cleanAll()
     }
 
     @Test
@@ -146,6 +164,8 @@ class NoteServiceTest {
         val result = NoteService.get()
 
         assert(result == 1)
+
+        NoteService.cleanAll()
     }
 
     @Test
@@ -164,6 +184,8 @@ class NoteServiceTest {
         val result = NoteService.getComment()
 
         assert(result == 1)
+
+        NoteService.cleanAll()
     }
 
     @Test
@@ -183,6 +205,8 @@ class NoteServiceTest {
 
 
         assert(result == 1)
+
+        NoteService.cleanAll()
 
     }
 }

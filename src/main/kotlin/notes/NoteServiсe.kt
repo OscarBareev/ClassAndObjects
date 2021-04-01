@@ -1,10 +1,14 @@
 package notes
 
-import comment.Comment
 
 object NoteService {
     private var notes = ArrayList<Note>()
     private var comments = ArrayList<NoteComment>()
+
+    fun cleanAll(){
+        notes.clear()
+        comments.clear()
+    }
 
     fun add(title: String, text: String): Int {
         val newNote = Note(title = title, text = text, id = notes.size + 1)
